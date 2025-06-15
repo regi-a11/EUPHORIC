@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+python-chess
+tensorflow
+numpy
+Pillow
+gunicorn
