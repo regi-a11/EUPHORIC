@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nexus Chess</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="fullscreen-overlay" class="hidden">
+        <p>Drop screenshot to analyze</p>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <h1>Nexus Chess</h1>
+            <div class="header-controls">
+                <button id="command-palette-btn" class="control-btn" title="Open Command Palette (Ctrl+K)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 10 4 15 9 20"></polyline>
+                        <polyline points="15 4 20 9 15 14"></polyline>
+                    </svg>
+                </button>
+                <div class="theme-switcher">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                    <label for="theme-toggle" class="theme-toggle-label"></label>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="myBoard" class="board-container"></div>
+
+            <div class="info-container">
+                <div class="turn-selector">
+                    <label><input type="radio" name="turn" value="w" checked> White</label>
+                    <label><input type="radio" name="turn" value="b"> Black</label>
+                </div>
+                <div class="fen-container">
+                    <label>FEN</label>
+                    <input type="text" id="fen-input" class="fen-input" />
+                    <button id="copy-fen-btn" class="control-btn" title="Copy FEN">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="status"></div>
+            </div>
+
+            <div class="buttons">
+                <button id="undo-btn" class="control-btn" title="Undo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v6h6"></path>
+                        <path d="M21 12A9 9 0 0 0 6 5.3L3 9"></path>
+                    </svg>
+                </button>
+                <button id="redo-btn" class="control-btn" title="Redo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 3v6h-6"></path>
+                        <path d="M3 12a9 9 0 0 0 15 6.7L21 15"></path>
+                    </svg>
+                </button>
+                <button id="best-move-btn">Suggest Best Move</button>
+                <button id="checkmate-btn">Find Checkmate</button>
+            </div>
+        </main>
+    </div>
+
+    <div id="command-palette-overlay" class="hidden">
+        <div id="command-palette">
+            <input type="text" id="command-input" placeholder="Type a command...">
+            <ul id="command-list"></ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
